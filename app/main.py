@@ -166,8 +166,8 @@ async def get_feeditems(feed_id: uuid.UUID, session: Session = Depends(get_sessi
 @app.get("/feeds/{feed_id}/feeditems/{feeditem_id}", response_model=FeedItemPublic, tags=["feed items"],
          summary="Get feed item")
 async def get_feeditems_by_feed_id(feed_id: uuid.UUID, feeditem_id: uuid.UUID, session: Session = Depends(get_session),
-                        offset: int = 0,
-                        limit: Annotated[int, Query(le=100)] = 100):
+                                    offset: int = 0,
+                                    limit: Annotated[int, Query(le=100)] = 100):
     feed = session.get(Feed, feed_id)
     if not feed:
         raise HTTPException(status_code=404, detail="feed not found")
@@ -233,7 +233,7 @@ async def update_feeditem(feeditem, feeditem_db, session):
 
 
 @app.delete("/feeds/{feed_id}/feeditems/{feeditem_id}", tags=["feed items"], summary="Delete feed item")
-def delete_feed(feed_id: uuid.UUID, feeditem_id: uuid.UUID, session: Session = Depends(get_session)):
+def delete_feeditem(feed_id: uuid.UUID, feeditem_id: uuid.UUID, session: Session = Depends(get_session)):
     feed = session.get(Feed, feed_id)
     if not feed:
         raise HTTPException(status_code=404, detail="feed not found")
