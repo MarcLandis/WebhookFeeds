@@ -3,13 +3,9 @@
 Webhook Feeds
 =============
 
-<p style="text-align:left;">
-  <a href="https://github.com/marclandis/webhookfeeds">
-    <img alt="Logo" src=".assets/logo.png" width="150px" />
-  </a>
-</p>
+<img src=".assets/logo.png" alt="Diun" width="128px" style="display: block; margin-left: auto; margin-right: auto"/>
 
-<p>
+<p align="center">
   <a href="https://github.com/marclandis/webhookfeeds/releases/latest"><img src="https://img.shields.io/github/release/marclandis/webhookfeeds.svg?style=flat-square" alt="GitHub release"></a>
   <a href="https://github.com/marclandis/webhookfeeds/actions?workflow=test"><img src="https://img.shields.io/github/actions/workflow/status/marclandis/webhookfeeds/test.yml?branch=main&label=test&logo=github&style=flat-square" alt="Test Status"></a>
   <a href="https://github.com/marclandis/webhookfeeds/actions?workflow=create-docker-image"><img src="https://img.shields.io/github/actions/workflow/status/marclandis/webhookfeeds/create-docker-image.yml?branch=main&label=build&logo=github&style=flat-square" alt="Build Status"></a>

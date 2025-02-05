@@ -1,0 +1,41 @@
+site_name: Webhook Feeds
+site_description: A simple RESTful API to create and get feeds
+site_author: MarcLandis
+docs_dir: docs
+
+repo_name: marclandis/webhookfeeds
+repo_url: https://github.com/marclandis/webhookfeeds
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/marclandis/webhookfeeds
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/marclandis/webhookfeeds
+
+theme:
+  name: material
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
