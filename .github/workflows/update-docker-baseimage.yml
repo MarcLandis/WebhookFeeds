@@ -1,0 +1,63 @@
+name: Update Docker base image
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 4 * * *'
+
+env:
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      needs-updating: ${{ steps.check.outputs.needs-updating }}
+    steps:
+      - name: Check if update available
+        id: check
+        uses: lucacome/docker-image-update-checker@v2.0.0
+        with:
+          base-image: python:3.13-alpine
+          image: ${{ env.IMAGE_NAME }}:latest
+          platforms: linux/amd64,linux/arm64 # Use 'all' to check all platforms
+
+  build:
+    needs: check
+    runs-on: ubuntu-latest
+    if: needs.check.outputs.needs-updating == 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Checkout latest release tag
+        run: |
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+          git checkout $LATEST_TAG
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE_NAME }}
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
