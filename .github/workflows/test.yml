@@ -1,9 +1,13 @@
 name: Test
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - 'app/**'
+      - 'tests/**'
   pull_request:
-    branches: [ "main" ]
+    paths:
+      - 'app/**'
+      - 'tests/**'
 
 permissions:
   contents: read

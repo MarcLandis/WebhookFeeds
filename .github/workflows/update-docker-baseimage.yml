@@ -14,12 +14,23 @@ jobs:
     outputs:
       needs-updating: ${{ steps.check.outputs.needs-updating }}
     steps:
+      - id: string
+        uses: vishalmamidi/lowercase-action@v1
+        with:
+          string: ${{ github.repository }}
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Check if update available
         id: check
         uses: lucacome/docker-image-update-checker@v2.0.0
         with:
           base-image: python:3.13-alpine
-          image: ${{ env.IMAGE_NAME }}:latest
+          image: ${{ steps.string.outputs.lowercase }}:latest
           platforms: linux/amd64,linux/arm64 # Use 'all' to check all platforms
 
   build:
@@ -40,12 +51,6 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.IMAGE_NAME }}
-
-      - name: Login to DockerHub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
