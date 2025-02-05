@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from starlette.config import Config
 
 # Config will read first from environment variables, then from the `.env` file at the git repository's root

@@ -1,20 +1,21 @@
 from sqlmodel import Session
 from starlette.testclient import TestClient
 
-from app.models import Feed, FeedItem
+from app.models.feed import Feed
+from app.models.feeditem import FeedItem
 
 
-def test_root(session: Session, client: TestClient):
+def test_root(client: TestClient):
     response = client.get("/")
     assert response.status_code == 200
 
 
-def test_license(session: Session, client: TestClient):
+def test_license(client: TestClient):
     response = client.get("/LICENSE.md")
     assert response.status_code == 200
 
 
-def test_docs(session: Session, client: TestClient):
+def test_docs(client: TestClient):
     response = client.get("/docs")
     assert response.status_code == 200
 
