@@ -1,11 +1,9 @@
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.staticfiles import StaticFiles
-from requests import Request
-from starlette import status
 from starlette.responses import JSONResponse
 
 from app.config import ASSETS_DIR
