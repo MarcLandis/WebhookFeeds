@@ -6,6 +6,7 @@ from sqlmodel.pool import StaticPool
 from app.dependencies import get_session
 from app.main import app
 
+
 @pytest.fixture(name="session")
 def session_fixture():
     engine = create_engine(

@@ -76,7 +76,7 @@ async def patch_feeditem(feed_id: uuid.UUID, feeditem_id: uuid.UUID, feeditem: F
 
 
 @router.delete("/feeditems/{feeditem_id}", summary="Delete feed item")
-def delete_feeditem(feed_id: uuid.UUID, feeditem_id: uuid.UUID, session: Session = Depends(get_session)):
+async def delete_feeditem(feed_id: uuid.UUID, feeditem_id: uuid.UUID, session: Session = Depends(get_session)):
     feed = session.get(Feed, feed_id)
     if not feed:
         raise HTTPException(status_code=404, detail="feed not found")
@@ -91,7 +91,6 @@ def delete_feeditem(feed_id: uuid.UUID, feeditem_id: uuid.UUID, session: Session
 
 async def create_feeditem(feed_id, feeditem, session):
     extra_data = {"feed_id": feed_id}
-    feeditem = feeditem
     feeditem_db = FeedItem.model_validate(feeditem, update=extra_data)
     session.add(feeditem_db)
     session.commit()

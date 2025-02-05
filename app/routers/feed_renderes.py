@@ -9,11 +9,14 @@ from app.models.feed import Feed
 from app.models.feeditem import FeedItem
 from ..dependencies import get_session
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/feeds/{feed_id}",
+    tags=["feed renderer"],
+    responses={404: {"description": "Not found"}}, )
 
 
-@router.get("/feeds/{feed_id}/rssfeed/", response_class=Response, tags=["feed renderer"], summary="Get RSS feed")
-def get_rssfeed(feed_id: uuid.UUID, session: Session = Depends(get_session)):
+@router.get("/rssfeed/", response_class=Response, summary="Get RSS feed")
+async def get_rssfeed(feed_id: uuid.UUID, session: Session = Depends(get_session)):
     feed = session.get(Feed, feed_id)
     if not feed:
         raise HTTPException(status_code=404, detail="feed not found")
@@ -21,8 +24,8 @@ def get_rssfeed(feed_id: uuid.UUID, session: Session = Depends(get_session)):
     return Response(content=data, media_type="application/xml")
 
 
-@router.get("/feeds/{feed_id}/atomfeed/", response_class=Response, tags=["feed renderer"], summary="Get Atom feed")
-def get_atomfeed(feed_id: uuid.UUID, session: Session = Depends(get_session)):
+@router.get("/atomfeed/", response_class=Response, summary="Get Atom feed")
+async def get_atomfeed(feed_id: uuid.UUID, session: Session = Depends(get_session)):
     feed = session.get(Feed, feed_id)
     if not feed:
         raise HTTPException(status_code=404, detail="feed not found")
