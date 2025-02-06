@@ -1,6 +1,7 @@
 site_name: Webhook Feeds
 site_description: A simple RESTful API to create and get feeds
 site_author: MarcLandis
+site_url: https://marclandis.github.io/WebhookFeeds
 copyright: Copyright &copy; 2025 MarcLandis
 docs_dir: docs
 
