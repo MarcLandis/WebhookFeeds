@@ -17,6 +17,6 @@ RUN pip install --no-cache-dir --upgrade -r /usr/src/requirements.txt
 
 COPY ./app /usr/src/app
 
-EXPOSE 8000
+EXPOSE 80
 
-CMD ["fastapi", "run", "app/main.py", "--proxy-headers", "--port", "8000"]
+CMD ["fastapi", "run", "app/main.py", "--proxy-headers", "--port", "80"]

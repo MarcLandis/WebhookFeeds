@@ -15,7 +15,7 @@ by [SQLAlchemy](https://www.sqlalchemy.org)
         volumes:
           - database:/usr/src/app/database # SQLite database location
         ports:
-          - 8000:8000
+          - 8000:80
         restart: unless-stopped
     
     volumes:
@@ -32,7 +32,7 @@ by [SQLAlchemy](https://www.sqlalchemy.org)
         environment:
           - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
         ports:
-          - 8000:8000
+          - 8000:80
         restart: unless-stopped
         
       postgres:

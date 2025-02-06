@@ -22,7 +22,7 @@ async def test_add_feeditem(session: Session, client: TestClient):
         image="docker.io/diun/testnotif:latest",
         hub_link="",
         mime_type="application/vnd.docker.distribution.manifest.list.v2+json",
-        digest="sha256:216e3ae7de4ca8b553eb11ef7abda00651e79e537e85c46108284e5e91673e01",
+        digest="sha256:216e3ae7de4ca8b553eb11ef7abda00651e79e537e85c46108284e5e91673e01",  # noqa: 501
         created=datetime.datetime.now(),
         platform="linux/amd64",
         metadata=metadata,

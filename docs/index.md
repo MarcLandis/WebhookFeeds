@@ -18,4 +18,4 @@ It is build on top of the wonderful <a href="https://fastapi.tiangolo.com/" targ
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the [MIT license](./license.md).
