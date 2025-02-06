@@ -46,7 +46,11 @@ def test_get_feed(session: Session, client: TestClient):
 def test_add_feed(client: TestClient):
     response = client.post(
         "/feeds/",
-        json={"title": "My Feed", "link": "https://feed.com/", "pubDate": "2025-02-04T13:57:24.722Z"}
+        json={
+            "title": "My Feed",
+            "link": "https://feed.com/",
+            "pubDate": "2025-02-04T13:57:24.722Z",
+        },
     )
 
     data = response.json()

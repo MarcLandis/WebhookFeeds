@@ -1,6 +1,6 @@
 FROM python:3.13-alpine
 
-LABEL authors="Marc Landis"
+LABEL authors="MarcLandis"
 
 WORKDIR /usr/src
 

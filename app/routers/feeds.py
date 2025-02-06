@@ -10,14 +10,15 @@ from ..dependencies import get_session
 router = APIRouter(
     prefix="/feeds",
     tags=["feeds"],
-    responses={404: {"description": "Not found"}}, )
+    responses={404: {"description": "Not found"}},
+)
 
 
 @router.get("/", response_model=list[FeedPublic], summary="Get all feeds")
 async def get_feeds(
-        session: Session = Depends(get_session),
-        offset: int = 0,
-        limit: Annotated[int, Query(le=100)] = 100,
+    session: Session = Depends(get_session),
+    offset: int = 0,
+    limit: Annotated[int, Query(le=100)] = 100,
 ):
     feeds = session.exec(select(Feed).offset(offset).limit(limit)).all()
     return feeds
@@ -41,7 +42,9 @@ async def get_feed(feed_id: uuid.UUID, session: Session = Depends(get_session)):
 
 
 @router.patch("/{feed_id}", response_model=FeedPublic, summary="Update feed")
-async def update_feed(feed_id: uuid.UUID, feed: FeedUpdate, session: Session = Depends(get_session)):
+async def update_feed(
+    feed_id: uuid.UUID, feed: FeedUpdate, session: Session = Depends(get_session)
+):
     feed_db = session.get(Feed, feed_id)
     if not feed_db:
         raise HTTPException(status_code=404, detail="feed not found")

@@ -9,11 +9,15 @@ class FeedBase(SQLModel):
     title: str = Field(title="feed title")
     link: str = Field(title="feed link")
     description: Union[str, None] = Field(default=None, title="feed description")
-    pubDate: Union[datetime, None] = Field(default=None, index=True, title="feed publication date")
+    pubDate: Union[datetime, None] = Field(
+        default=None, index=True, title="feed publication date"
+    )
 
 
 class Feed(FeedBase, table=True):
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True, title="unique feed id")
+    id: uuid.UUID = Field(
+        default_factory=uuid.uuid4, primary_key=True, title="unique feed id"
+    )
 
 
 class FeedPublic(FeedBase):

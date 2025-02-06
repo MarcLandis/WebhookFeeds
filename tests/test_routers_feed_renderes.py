@@ -10,8 +10,12 @@ def test_get_rssfeed(session: Session, client: TestClient):
     session.add(feed)
     session.commit()
 
-    feeditem_1 = FeedItem(title="My Feed Item 1", link="https://feeditem1.com/", feed_id=feed.id)
-    feeditem_2 = FeedItem(title="My Feed Item 2", link="https://feeditem2.com/", feed_id=feed.id)
+    feeditem_1 = FeedItem(
+        title="My Feed Item 1", link="https://feeditem1.com/", feed_id=feed.id
+    )
+    feeditem_2 = FeedItem(
+        title="My Feed Item 2", link="https://feeditem2.com/", feed_id=feed.id
+    )
     session.add(feeditem_1)
     session.add(feeditem_2)
     session.commit()
@@ -33,8 +37,12 @@ def test_get_atomfeed(session: Session, client: TestClient):
     session.add(feed)
     session.commit()
 
-    feeditem_1 = FeedItem(title="My Feed Item 1", link="https://feeditem1.com/", feed_id=feed.id)
-    feeditem_2 = FeedItem(title="My Feed Item 2", link="https://feeditem2.com/", feed_id=feed.id)
+    feeditem_1 = FeedItem(
+        title="My Feed Item 1", link="https://feeditem1.com/", feed_id=feed.id
+    )
+    feeditem_2 = FeedItem(
+        title="My Feed Item 2", link="https://feeditem2.com/", feed_id=feed.id
+    )
     session.add(feeditem_1)
     session.add(feeditem_2)
     session.commit()

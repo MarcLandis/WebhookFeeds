@@ -13,17 +13,17 @@ Webhook Feeds
   <a href="https://hub.docker.com/r/marclandis/webhookfeeds/"><img src="https://img.shields.io/docker/pulls/marclandis/webhookfeeds.svg?style=flat-square&logo=docker" alt="Docker Pulls"></a>
 </p>
 
-
 ### About
 
-**Webhook Feeds** is a simple RESTful API to create and get feeds. For example, you can build a feed based on notification from [Diun](https://crazymax.dev/diun/), which was the reason to start this project.
+**Webhook Feeds** is a simple RESTful API to create and get feeds. For example, you can build a feed based on
+notification from <a href="https://crazymax.dev/diun/" target="_blank">Diun</a>, which was the reason to start this
+project.
 
 ### Documentation
 
-Documentation is available at [github.io](https://marclandis.github.io/WebhookFeeds/)
+Documentation is available at <a href="https://marclandis.github.io/WebhookFeeds/" target="_blank">github.io</a>
 
 [OpenAPI Documentation](/docs) is available when running the application.
-
 
 ### Contributing
 

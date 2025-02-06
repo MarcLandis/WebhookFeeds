@@ -3,7 +3,7 @@ name: Update Docker base image
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 4 * * *'
+    - cron: '0 4 * * *'
 
 env:
   IMAGE_NAME: ${{ github.repository }}
