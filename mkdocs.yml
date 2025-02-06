@@ -1,6 +1,7 @@
 site_name: Webhook Feeds
 site_description: A simple RESTful API to create and get feeds
 site_author: MarcLandis
+copyright: Copyright &copy; 2025 MarcLandis
 docs_dir: docs
 
 repo_name: marclandis/webhookfeeds
@@ -39,3 +40,26 @@ theme:
       toggle:
         icon: material/toggle-switch-off
         name: Switch to system preference
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+
+nav:
+  - Home: index.md
+  - Deployment: deploy.md
+  - Usage: usage.md

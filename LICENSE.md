@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright © 2025 Marc Landis
+Copyright &copy; 2025 Marc Landis
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

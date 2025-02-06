@@ -11,7 +11,9 @@
 </p>
 
 ## About
-Webhook Feeds is a simple RESTful API to create and get feeds.
+Webhook Feeds is a simple RESTful API to create and get feeds. 
+
+It is build on top of the wonderful [FastAPI](https://fastapi.tiangolo.com/) framework.
 
 ## License
 

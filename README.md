@@ -20,57 +20,10 @@ Webhook Feeds
 
 ### Documentation
 
+Documentation is available at [github.io](https://marclandis.github.io/WebhookFeeds/)
+
 [OpenAPI Documentation](/docs) is available when running the application.
 
-#### Docker Compose with SQLite database:
-```
-services:
-  webhookfeeds:
-    image: marclandis/webhookfeeds:latest
-    container_name: webhookfeeds
-    volumes:
-      - database:/usr/src/app/database # SQLite database location
-    ports:
-      - 8000:8000
-    restart: unless-stopped
-
-volumes:
-  database:
-```
-
-#### Docker Compose with PostgresSQL database:
-```
-services:
-  webhookfeeds:
-    image: marclandis/webhookfeeds:latest
-    container_name: webhookfeeds
-    environment:
-      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-    ports:
-      - 8000:8000
-    restart: unless-stopped
-    
-  postgres:
-    image: postgres:17.2
-    hostname: postgres
-    container_name: postgres
-    restart: unless-stopped
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      
-volumes:
-  postgres_data:
-```
-.env file:
-```
-POSTGRES_DB=webhookfeeds
-POSTGRES_USER=webhookfeeds
-POSTGRES_PASSWORD=Password1234!
-```
 
 ### Contributing
 
