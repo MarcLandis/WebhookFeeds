@@ -21,7 +21,8 @@ router = APIRouter(
     summary="add feed item from diun webhook call",
 )
 async def create_diun_feeditem(
-    feed_id: uuid.UUID, notif: DiunNotification, session: Session = Depends(get_session)
+        feed_id: uuid.UUID, notif: DiunNotification,
+        session: Session = Depends(get_session)
 ):
     feed = session.get(Feed, feed_id)
     if not feed:

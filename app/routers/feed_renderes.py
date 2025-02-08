@@ -35,7 +35,8 @@ async def get_atomfeed(feed_id: uuid.UUID, session: Session = Depends(get_sessio
 
 
 def generate_feed(
-    feed_id: uuid.UUID, session: Session = Depends(get_session), feed_type: str = "rss"
+        feed_id: uuid.UUID, session: Session = Depends(get_session),
+        feed_type: str = "rss"
 ):
     feed_db = session.get(Feed, feed_id)
     if not feed_db:

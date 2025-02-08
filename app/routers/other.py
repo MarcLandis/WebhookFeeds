@@ -29,9 +29,9 @@ async def root():
         cmarkgfm.github_flavored_markdown_to_html(
             md,
             options=(
-                cmarkgfmOptions.CMARK_OPT_GITHUB_PRE_LANG
-                | cmarkgfmOptions.CMARK_OPT_SMART
-                | cmarkgfmOptions.CMARK_OPT_UNSAFE
+                    cmarkgfmOptions.CMARK_OPT_GITHUB_PRE_LANG
+                    | cmarkgfmOptions.CMARK_OPT_SMART
+                    | cmarkgfmOptions.CMARK_OPT_UNSAFE
             ),
         ),
     )
@@ -45,10 +45,10 @@ async def get_license():
     html_content = cmarkgfm.github_flavored_markdown_to_html(
         md,
         options=(
-            cmarkgfmOptions.CMARK_OPT_GITHUB_PRE_LANG
-            | cmarkgfmOptions.CMARK_OPT_SMART
-            | cmarkgfmOptions.CMARK_OPT_HARDBREAKS
-            | cmarkgfmOptions.CMARK_OPT_VALIDATE_UTF8
+                cmarkgfmOptions.CMARK_OPT_GITHUB_PRE_LANG
+                | cmarkgfmOptions.CMARK_OPT_SMART
+                | cmarkgfmOptions.CMARK_OPT_HARDBREAKS
+                | cmarkgfmOptions.CMARK_OPT_VALIDATE_UTF8
         ),
     )
     return HTMLResponse(content=html_content, status_code=200)

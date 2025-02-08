@@ -1,0 +1,32 @@
+Docker tag <a href="{{ notification.hub_link }}"><b>{{ notification.image }}</b></a> updated
+<br>
+{% if notification.hostname is defined %}
+    <br>
+    <b>Hostname:</b> {{ notification.hostname }}
+{% endif %}
+{% if notification.status is defined %}
+    <br>
+    <b>Status:</b> {{ notification.status }}
+{% endif %}
+{% if notification.provider is defined %}
+    <br>
+    <b>Provider:</b> {{ notification.provider }}
+{% endif %}
+{% if notification.digest is defined %}
+    <br>
+    <b>Digest:</b> {{ notification.digest }}
+{% endif %}
+{% if notification.created is defined %}
+    <br>
+    <b>Created:</b> {{ notification.created }}
+{% endif %}
+{% if notification.platform is defined %}
+    <br>
+    <b>Platform:</b> {{ notification.platform }}
+{% endif %}
+{% if notification.metadata is defined %}
+    {% for item in notification.metadata %}
+        <br>
+        <b>{{ item }}:</b> {{ notification.metadata[item] }}
+    {% endfor %}
+{% endif %}

@@ -65,5 +65,13 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Deployment: deploy.md
-  - Usage: usage.md
+  - Usage:
+      - Add a feed: add_feed.md
+      - Add feed items: add_feeditems.md
+      - Get the news feed: feed_renderer.md
+
+  - Proxies:
+      - What is a proxy: what_is_proxy.md
+      - Diun: diun.md
+      - Templates: templates.md
   - License: license.md

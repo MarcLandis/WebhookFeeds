@@ -21,10 +21,10 @@ router = APIRouter(
     summary="Get feed items for a feed",
 )
 async def get_feeditems(
-    feed_id: uuid.UUID,
-    session: Session = Depends(get_session),
-    offset: int = 0,
-    limit: Annotated[int, Query(le=100)] = 100,
+        feed_id: uuid.UUID,
+        session: Session = Depends(get_session),
+        offset: int = 0,
+        limit: Annotated[int, Query(le=100)] = 100,
 ):
     feed = session.get(Feed, feed_id)
     if not feed:
@@ -37,10 +37,10 @@ async def get_feeditems(
 
 @router.post("/feeditems/", response_model=FeedItemPublic, summary="Create feed item")
 async def add_feeditem(
-    feed_id: uuid.UUID,
-    feeditem: FeedItemBase,
-    session: Session = Depends(get_session),
-    insert_or_update: bool = True,
+        feed_id: uuid.UUID,
+        feeditem: FeedItemBase,
+        session: Session = Depends(get_session),
+        insert_or_update: bool = True,
 ):
     feed = session.get(Feed, feed_id)
     if not feed:
@@ -66,11 +66,11 @@ async def add_feeditem(
     "/feeditems/{feeditem_id}", response_model=FeedItemPublic, summary="Get feed item"
 )
 async def get_feeditems_by_feed_id(
-    feed_id: uuid.UUID,
-    feeditem_id: uuid.UUID,
-    session: Session = Depends(get_session),
-    offset: int = 0,
-    limit: Annotated[int, Query(le=100)] = 100,
+        feed_id: uuid.UUID,
+        feeditem_id: uuid.UUID,
+        session: Session = Depends(get_session),
+        offset: int = 0,
+        limit: Annotated[int, Query(le=100)] = 100,
 ):
     feed = session.get(Feed, feed_id)
     if not feed:
@@ -93,10 +93,10 @@ async def get_feeditems_by_feed_id(
     summary="Update feed item",
 )
 async def patch_feeditem(
-    feed_id: uuid.UUID,
-    feeditem_id: uuid.UUID,
-    feeditem: FeedItemUpdate,
-    session: Session = Depends(get_session),
+        feed_id: uuid.UUID,
+        feeditem_id: uuid.UUID,
+        feeditem: FeedItemUpdate,
+        session: Session = Depends(get_session),
 ):
     feed = session.get(Feed, feed_id)
     if not feed:
@@ -113,7 +113,8 @@ async def patch_feeditem(
 
 @router.delete("/feeditems/{feeditem_id}", summary="Delete feed item")
 async def delete_feeditem(
-    feed_id: uuid.UUID, feeditem_id: uuid.UUID, session: Session = Depends(get_session)
+        feed_id: uuid.UUID, feeditem_id: uuid.UUID,
+        session: Session = Depends(get_session)
 ):
     feed = session.get(Feed, feed_id)
     if not feed:

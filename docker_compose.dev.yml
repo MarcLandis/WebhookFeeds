@@ -1,0 +1,14 @@
+services:
+  webhookfeeds:
+    build: .
+    container_name: webhookfeeds
+    volumes:
+      - database:/usr/src/app/database
+      - templates_custom:/usr/src/app/templates/custom
+    ports:
+      - "80:80"
+    restart: unless-stopped
+
+volumes:
+  database:
+  templates_custom:
