@@ -1,6 +1,9 @@
 services:
   webhookfeeds:
-    build: .
+    build:
+      context: .
+      args:
+        - WEBHOOKFEEDS_ENV=development
     container_name: webhookfeeds
     volumes:
       - database:/usr/src/app/database

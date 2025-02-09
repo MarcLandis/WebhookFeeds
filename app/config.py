@@ -1,10 +1,10 @@
-from pathlib import Path
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
-from starlette.config import Config
 
-# Config will read first from environment variables,
-# then from the `.env` file at the git repository's root
-config = Config(Path(__file__).parent.parent / ".env")
+class Settings(BaseSettings):
+    database_url: str = "sqlite:///./app/database/database.db"
 
-# Database
-DATABASE_URL = config("DATABASE_URL", default="sqlite:///./app/database/database.db")
+    model_config = SettingsConfigDict(env_file=".env")
+
+
+settings = Settings()
