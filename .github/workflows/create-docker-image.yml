@@ -6,12 +6,12 @@ on:
     branches:
       - 'main'
     paths:
-      - 'Dockerfile'
+      - 'fastapi.Dockerfile'
     tags:
       - 'v*'
   pull_request:
     paths:
-      - 'Dockerfile'
+      - 'fastapi.Dockerfile'
 
 env:
   IMAGE_NAME: ${{ github.repository }}
@@ -42,6 +42,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          file: ./fastapi.Dockerfile
           platforms: linux/amd64,linux/arm64
           push: ${{ github.ref_type == 'tag' }}
           tags: ${{ steps.meta.outputs.tags }}

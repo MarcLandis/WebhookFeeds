@@ -23,7 +23,7 @@ project.
 
 Documentation is available at <a href="https://marclandis.github.io/WebhookFeeds/" target="_blank">github.io</a>
 
-[OpenAPI Documentation](/docs) is available when running the application.
+[OpenAPI Documentation](./docs) is available when running the application.
 
 ### Contributing
 

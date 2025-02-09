@@ -4,6 +4,7 @@ from fastapi import APIRouter
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.responses import HTMLResponse
 
+from app.config import settings
 from app.util import get_root_folder
 
 router = APIRouter()
@@ -57,7 +58,7 @@ async def get_license():
 @router.get("/docs", include_in_schema=False)
 async def swagger_ui_html():
     return get_swagger_ui_html(
-        openapi_url="/openapi.json",
+        openapi_url=settings.url_subfolder + "/openapi.json",
         title="Webhook Feeds",
         swagger_favicon_url=".assets/favicon.ico",
     )

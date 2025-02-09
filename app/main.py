@@ -6,6 +6,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.staticfiles import StaticFiles
 from starlette.responses import JSONResponse
 
+from app.config import settings
 from app.database import create_db_and_tables
 from app.routers import other, feeds, feeditems, feed_renderes, proxies
 from app.util import get_root_folder
@@ -50,6 +51,7 @@ app = FastAPI(
     redoc_url=None,
     docs_url=None,
     openapi_tags=tags_metadata,
+    root_path=settings.url_subfolder,
 )
 app.include_router(other.router)
 app.include_router(feeds.router)
